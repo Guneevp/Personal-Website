@@ -1,0 +1,26 @@
+---
+import { siteConfig } from "../config";
+
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<section id={id} class="content-section">
+  <div class="content-wrap">
+    <header class="section-header">
+      <h2 class="section-title">{title}</h2>
+      <div
+        class="section-accent"
+        style={`background-color: ${siteConfig.accentColor}`}
+        aria-hidden="true"
+      />
+    </header>
+    <div class="section-body">
+      <slot />
+    </div>
+  </div>
+</section>

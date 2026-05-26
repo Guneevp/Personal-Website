@@ -5,6 +5,8 @@ export const siteConfig = {
   accentColor: "#1d4ed8",
   /** Page background in light mode (header, hero, body). */
   lightBackground: "#faf9f7",
+  /** Max width for content below the hero (CSS length, e.g. "42rem"). */
+  contentMaxWidth: "42rem",
   /** Public URL for your headshot (e.g. `/profile.jpg` in `public/`). Leave empty to hide the hero photo. */
   heroPhoto: "/Headshot.jpg",
   /** Public URL to your PDF (e.g. put `resume.pdf` in `public/`). Remove or leave empty to hide the resume link in the hero bar. */
