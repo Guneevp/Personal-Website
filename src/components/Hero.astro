@@ -1,7 +1,5 @@
 ---
 import { siteConfig } from "../config";
-import ThemeToggle from "./ThemeToggle.astro";
-
 const socialIconSize = siteConfig.socialIconSize;
 const accent = siteConfig.accentColor;
 const socialIconStyle = {
@@ -17,12 +15,6 @@ const resumePdf = siteConfig.resumePdf;
   class="relative isolate overflow-hidden bg-light-bg py-24 transition-colors duration-300 dark:bg-gray-950 md:h-[80vh]"
   style={`--accent-color: ${siteConfig.accentColor}`}
 >
-  <!-- Mobile: fixed below the name bar so we sit above it in the stack and stay tappable -->
-  <div
-    class="pointer-events-auto fixed right-4 top-14 z-[60] md:hidden sm:right-6 sm:top-16"
-  >
-    <ThemeToggle />
-  </div>
   <!-- Gradient overlay -->
   <div
     class="absolute inset-0 -z-10 dark:hidden"
@@ -162,9 +154,9 @@ const resumePdf = siteConfig.resumePdf;
           <img
             src={heroPhoto}
             alt={`Portrait of ${siteConfig.name}`}
-            width="320"
-            height="400"
-            class="aspect-[4/5] w-40 max-w-[min(55vw,14rem)] rounded-2xl border border-gray-200/80 object-cover shadow-md dark:border-gray-700 sm:w-44 md:w-52 md:max-w-none lg:w-56"
+            width="384"
+            height="480"
+            class="aspect-[4/5] w-48 max-w-[min(60vw,17rem)] rounded-2xl border border-gray-200/80 object-cover shadow-md dark:border-gray-700 sm:w-52 md:w-60 md:max-w-none lg:w-64"
             loading="eager"
             decoding="async"
           />

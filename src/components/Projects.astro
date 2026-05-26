@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from "../config";
 import SectionLayout from "./SectionLayout.astro";
+import ProjectCard from "./ProjectCard.astro";
 
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 ---
@@ -8,80 +9,12 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 {
   hasProjects && (
     <SectionLayout id="projects" title="Projects">
-      <ol class="space-y-6">
-        {siteConfig.projects.map((project, index) => {
-          const Component = project.link ? "a" : "article";
-          const linkProps = project.link
-            ? {
-                href: project.link,
-                target: "_blank",
-                rel: "noopener noreferrer",
-              }
-            : {};
-
-          return (
-            <li>
-              <Component
-                {...linkProps}
-                class:list={[
-                  "entry-card group block",
-                  project.link &&
-                    "hover:border-gray-300 dark:hover:border-gray-600",
-                ]}
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div class="min-w-0 flex-1">
-                    <p
-                      class="text-xs font-mono font-medium"
-                      style={{ color: siteConfig.accentColor }}
-                    >
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h3 class="mt-1 text-lg font-semibold text-gray-900 dark:text-gray-100 sm:text-xl">
-                      {project.name}
-                    </h3>
-                  </div>
-                  {project.link && (
-                    <span
-                      class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors group-hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:group-hover:bg-gray-700"
-                      aria-hidden="true"
-                    >
-                      <svg
-                        class="h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M7 17L17 7M17 7H7M17 7V17"
-                        />
-                      </svg>
-                    </span>
-                  )}
-                </div>
-
-                <p class="prose-lead mt-3 text-base sm:text-base">
-                  {project.description}
-                </p>
-
-                {project.skills && project.skills.length > 0 && (
-                  <ul class="mt-4 flex flex-wrap gap-1.5">
-                    {project.skills.map((skill) => (
-                      <li>
-                        <span class="rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
-                          {skill}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </Component>
-            </li>
-          );
-        })}
+      <ol class="space-y-8">
+        {siteConfig.projects.map((project, index) => (
+          <li>
+            <ProjectCard project={project} index={index} />
+          </li>
+        ))}
       </ol>
     </SectionLayout>
   )

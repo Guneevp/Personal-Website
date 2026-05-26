@@ -1,0 +1,216 @@
+---
+import { siteConfig } from "../config";
+
+export type Project = {
+  name: string;
+  description: string;
+  /** Live demo or product URL. Primary destination when set. */
+  link?: string;
+  /** Repository URL. Used as card link if `link` is omitted; shown as GitHub action. */
+  github?: string;
+  /** Screenshot in `public/` (e.g. `/projects/app.png`) or a full URL. */
+  image?: string;
+  /** Short demo clip in `public/` (e.g. `/projects/app.mp4`). Takes precedence over `image`. */
+  video?: string;
+  /** Thumbnail before play. Falls back to `image`. */
+  videoPoster?: string;
+  skills?: string[];
+};
+
+interface Props {
+  project: Project;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+
+const primaryHref = project.link ?? project.github;
+const hasMedia = Boolean(project.video || project.image);
+const poster = project.videoPoster ?? project.image;
+const cardLinkProps = primaryHref
+  ? { href: primaryHref, target: "_blank", rel: "noopener noreferrer" }
+  : {};
+---
+
+<article class="entry-card project-card overflow-hidden p-0">
+  {
+    hasMedia && (
+      <div class="project-media">
+        {
+          project.video ? (
+            <video
+              src={project.video}
+              poster={poster}
+              controls
+              muted
+              playsinline
+              preload="metadata"
+              class="project-media__asset"
+            >
+              <track kind="captions" />
+            </video>
+          ) : project.image && primaryHref ? (
+            <a
+              {...cardLinkProps}
+              class="project-media__link group/media block"
+              aria-label={`Open ${project.name}`}
+            >
+              <img
+                src={project.image}
+                alt={`Preview of ${project.name}`}
+                loading="lazy"
+                decoding="async"
+                class="project-media__asset transition duration-300 group-hover/media:scale-[1.02]"
+              />
+            </a>
+          ) : (
+            project.image && (
+              <img
+                src={project.image}
+                alt={`Preview of ${project.name}`}
+                loading="lazy"
+                decoding="async"
+                class="project-media__asset"
+              />
+            )
+          )
+        }
+      </div>
+    )
+  }
+
+  <div class="project-card__body p-5 sm:p-6">
+    <div class="flex items-start justify-between gap-4">
+      <div class="min-w-0 flex-1">
+        {
+          primaryHref ? (
+            <a
+              {...cardLinkProps}
+              class="group/title block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{ outlineColor: siteConfig.accentColor }}
+            >
+              <p
+                class="text-xs font-mono font-medium"
+                style={{ color: siteConfig.accentColor }}
+              >
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 class="mt-1 text-lg font-semibold text-gray-900 transition-colors group-hover/title:underline dark:text-gray-100 sm:text-xl">
+                {project.name}
+              </h3>
+            </a>
+          ) : (
+            <>
+              <p
+                class="text-xs font-mono font-medium"
+                style={{ color: siteConfig.accentColor }}
+              >
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 class="mt-1 text-lg font-semibold text-gray-900 dark:text-gray-100 sm:text-xl">
+                {project.name}
+              </h3>
+            </>
+          )
+        }
+      </div>
+
+      <div class="flex shrink-0 items-center gap-2">
+        {
+          project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-action"
+              aria-label={`${project.name} on GitHub`}
+              title="GitHub"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
+          )
+        }
+        {
+          project.link && project.github && project.link !== project.github && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-action"
+              aria-label={`Open ${project.name}`}
+              title="Live demo"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                />
+              </svg>
+            </a>
+          )
+        }
+        {
+          primaryHref && !project.github && (
+            <span class="project-action pointer-events-none" aria-hidden="true">
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                />
+              </svg>
+            </span>
+          )
+        }
+      </div>
+    </div>
+
+    {
+      primaryHref && hasMedia && project.video && (
+        <p class="mt-3">
+          <a
+            {...cardLinkProps}
+            class="text-sm font-medium transition-colors hover:underline"
+            style={{ color: siteConfig.accentColor }}
+          >
+            View on {project.github ? "GitHub" : "project site"} →
+          </a>
+        </p>
+      )
+    }
+
+    <p class="prose-lead mt-3 text-base">{project.description}</p>
+
+    {
+      project.skills && project.skills.length > 0 && (
+        <ul class="mt-4 flex flex-wrap gap-1.5">
+          {
+            project.skills.map((skill) => (
+              <li>
+                <span class="rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+                  {skill}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      )
+    }
+  </div>
+</article>

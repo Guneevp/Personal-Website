@@ -71,3 +71,23 @@ body {
   content: "";
   @apply absolute top-[0.6em] left-0 h-1.5 w-1.5 rounded-full bg-gray-400 dark:bg-gray-500;
 }
+
+.project-card {
+  @apply transition-shadow duration-300 hover:shadow-md;
+}
+
+.project-media {
+  @apply border-b border-gray-200/90 px-5 pt-5 dark:border-gray-800 sm:px-6 sm:pt-6;
+}
+
+.project-media__asset {
+  @apply h-52 w-full rounded-lg object-cover sm:h-72;
+}
+
+.project-media__link {
+  @apply block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.project-action {
+  @apply flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 transition-colors hover:border-gray-300 hover:bg-gray-50 hover:text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-800 dark:hover:text-gray-100;
+}

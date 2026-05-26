@@ -28,21 +28,28 @@ export const siteConfig = {
       name: "AI Dev Roundup Newsletter",
       description:
         "One concise email. Five minutes. Every Tuesday. Essential AI news & trends, production-ready libraries, powerful AI tools, and real-world code examples",
+      github: "https://github.com/yourusername/aidevroundup",
       link: "https://aidevroundup.com/?ref=devportfolio",
+      image: "/Headshot.jpg",
+      // video: "/projects/aidevroundup.mp4",
       skills: ["React", "Node.js", "AWS"],
     },
     {
       name: "Chrome Extension Mastery: Build Full-Stack Extensions with React & Node.js",
       description:
         "Master the art of building production-ready, full-stack Chrome Extensions using modern web technologies and best practices",
+      github: "https://github.com/yourusername/fullstackextensions",
       link: "https://fullstackextensions.com/?ref=devportfolio",
+      // image: "/projects/fullstackextensions.png",
       skills: ["React", "Node.js", "AWS"],
     },
     {
       name: "ExtensionKit",
       description:
         "Kit to jump-start your Chrome extension projects with a variety of battle-tested starter templates & examples",
+      github: "https://github.com/yourusername/extensionkit",
       link: "https://extensionkit.io/?ref=devportfolio",
+      // image: "/projects/extensionkit.png",
       skills: ["React", "Node.js", "AWS"],
     },
   ],
