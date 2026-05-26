@@ -7,9 +7,9 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
   hasProjects && (
     <section id="projects" class="p-8 sm:p-12 md:p-16 lg:p-24">
       <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-3">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-gray-100">
               Projects
             </h2>
             <div
@@ -18,8 +18,8 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
             />
           </div>
 
-          <div class="lg:col-span-8">
-            <div class="space-y-8">
+          <div class="lg:col-span-9">
+            <div class="space-y-10 lg:space-y-12">
               {siteConfig.projects.map((project, index) => {
                 const Component = project.link ? "a" : "div";
                 const linkProps = project.link
@@ -34,14 +34,14 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                   <div class="group relative">
                     <Component
                       {...linkProps}
-                      class={`block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 ${
+                      class={`block relative rounded-2xl border border-gray-100/90 bg-gray-50/40 p-6 sm:p-8 md:p-10 lg:p-12 transition-all duration-300 dark:border-gray-800/90 dark:bg-gray-900/40 ${
                         project.link
-                          ? "hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"
+                          ? "hover:border-gray-200/80 hover:bg-gray-50/70 hover:shadow-md hover:-translate-y-0.5 dark:hover:border-gray-700/80 dark:hover:bg-gray-900/70"
                           : ""
                       }`}
                     >
                       {project.link && (
-                        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover:bg-gray-700">
+                        <div class="absolute top-5 right-5 sm:top-7 sm:right-7 md:top-9 md:right-9 flex h-11 w-11 items-center justify-center rounded-full bg-gray-600/90 text-white transition-all duration-300 sm:h-12 sm:w-12 md:h-14 md:w-14 group-hover:bg-gray-500/90">
                           <svg
                             class="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                             fill="none"
@@ -58,31 +58,33 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                         </div>
                       )}
 
-                      <div class="space-y-4">
+                      <div class="space-y-5 md:space-y-6">
                         <div>
                           <span
-                            class="text-sm font-mono"
+                            class="text-sm font-mono sm:text-base"
                             style={{ color: siteConfig.accentColor }}
                           >
                             0{index + 1}
                           </span>
-                          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
+                          <h3 class="mt-1 text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl md:text-4xl">
                             {project.name}
                           </h3>
                         </div>
 
                         <p
-                          class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
+                          class={`text-base leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg md:text-xl md:leading-relaxed ${project.link ? "pr-14 sm:pr-16 md:pr-20" : ""}`}
                         >
                           {project.description}
                         </p>
 
                         {project.skills && project.skills.length > 0 && (
-                          <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
+                          <div class="flex flex-wrap gap-2 pt-1 sm:gap-2.5 sm:pt-2">
                             {project.skills.map((skill) => (
                               <span
-                                class={`px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
-                                  project.link ? "group-hover:bg-gray-800" : ""
+                                class={`rounded-md bg-gray-200/90 px-3 py-1.5 text-xs font-medium text-gray-700 transition-all duration-300 dark:bg-gray-800/90 dark:text-gray-300 sm:rounded-lg sm:px-3.5 sm:py-2 sm:text-sm ${
+                                  project.link
+                                    ? "group-hover:bg-gray-300/90 group-hover:text-gray-800 dark:group-hover:bg-gray-700/90 dark:group-hover:text-gray-200"
+                                    : ""
                                 }`}
                               >
                                 {skill}

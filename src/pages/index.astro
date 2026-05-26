@@ -24,6 +24,21 @@ import "../styles/global.css";
       rel="stylesheet"
     />
     <title>{siteConfig.name} - {siteConfig.title}</title>
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : prefersDark
+              ? "dark"
+              : "light";
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script>
   </head>
   <body>
     <Header />
@@ -35,5 +50,13 @@ import "../styles/global.css";
       <Education />
     </section>
     <Footer />
+    <script>
+      import {
+        initHeaderScroll,
+        initThemeToggle,
+      } from "../scripts/theme.ts";
+      initThemeToggle();
+      initHeaderScroll();
+    </script>
   </body>
 </html>

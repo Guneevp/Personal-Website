@@ -1,17 +1,22 @@
 export const siteConfig = {
-  name: "Ryan Fitzgerald",
-  title: "Senior Software Engineer",
-  description: "Portfolio website of Ryan Fitzgerald",
+  name: "Guneev Pannu",
+  title: "Aspiring Software Engineer",
+  description: "Portfolio website for Guneev Pannu",
   accentColor: "#1d4ed8",
+  /** Public URL to your PDF (e.g. put `resume.pdf` in `public/`). Remove or leave empty to hide the hero button. */
+  resumePdf: "/Guneev\ Pannu\ Resume.pdf",
+  /** Email, LinkedIn, GitHub, etc. icon size in pixels (Hero & Footer). */
+  socialIconSize: 40,
   social: {
-    email: "your-email@example.com",
-    linkedin: "https://linkedin.com/in/yourprofile",
-    twitter: "https://x.com/rfitzio",
-    github: "https://github.com/RyanFitzgerald",
+    email: "guneev.pannu@mail.utoronto.ca",
+    linkedin: "https://www.linkedin.com/in/guneev-pannu-b00197311/",
+    // twitter: "https://x.com/rfitzio",
+    github: "https://github.com/GuneevP",
   },
   aboutMe:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quos asperiores nihil consequatur tempore cupiditate architecto natus commodi corrupti quas quasi facere est, dignissimos odit nam veniam sapiente ut, vitae eligendi ipsum dolor, nostrum ullam impedit! Corrupti ratione mollitia temporibus necessitatibus, consectetur reiciendis recusandae id, dolorum quaerat, vero pariatur. Ratione!",
-  skills: ["Javascript", "React", "Node.js", "Python", "AWS", "Docker"],
+    "A student at UofT. Always curious, always improving, and in love with Java, and the NextJS stacks but who also knows much more.",
+  skills: ["Java", "Typescript", "Python", "C"],
+  skillicons: ["java", "ts", "py", "c"],
   projects: [
     {
       name: "AI Dev Roundup Newsletter",
