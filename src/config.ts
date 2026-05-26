@@ -3,8 +3,12 @@ export const siteConfig = {
   title: "Aspiring Software Engineer",
   description: "Portfolio website for Guneev Pannu",
   accentColor: "#1d4ed8",
-  /** Public URL to your PDF (e.g. put `resume.pdf` in `public/`). Remove or leave empty to hide the hero button. */
-  resumePdf: "/Guneev\ Pannu\ Resume.pdf",
+  /** Page background in light mode (header, hero, body). */
+  lightBackground: "#faf9f7",
+  /** Public URL for your headshot (e.g. `/profile.jpg` in `public/`). Leave empty to hide the hero photo. */
+  heroPhoto: "/Headshot.jpg",
+  /** Public URL to your PDF (e.g. put `resume.pdf` in `public/`). Remove or leave empty to hide the resume link in the hero bar. */
+  resumePdf: "/Guneev Pannu Resume.pdf",
   /** Email, LinkedIn, GitHub, etc. icon size in pixels (Hero & Footer). */
   socialIconSize: 40,
   social: {

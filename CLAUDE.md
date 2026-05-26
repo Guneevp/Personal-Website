@@ -56,6 +56,7 @@ When modifying components:
 
 The `src/config.ts` exports a `siteConfig` object with these sections:
 - Basic info: name, title, description, accentColor
+- Hero: `heroPhoto` (public image URL, optional), `resumePdf` (PDF URL for the hero resume link, optional), `socialIconSize` (px for hero/footer social icons)
 - Social links: email, linkedin, twitter, github (all optional)
 - aboutMe: string
 - skills: string[]

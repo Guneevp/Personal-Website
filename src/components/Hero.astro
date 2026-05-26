@@ -8,11 +8,13 @@ const socialIconStyle = {
   width: `${socialIconSize}px`,
   height: `${socialIconSize}px`,
 };
+const heroPhoto = siteConfig.heroPhoto;
+const resumePdf = siteConfig.resumePdf;
 ---
 
 <div
   id="hero"
-  class="relative isolate overflow-hidden bg-white py-24 transition-colors duration-300 dark:bg-gray-950 md:h-screen"
+  class="relative isolate overflow-hidden bg-light-bg py-24 transition-colors duration-300 dark:bg-gray-950 md:h-[60vh]"
   style={`--accent-color: ${siteConfig.accentColor}`}
 >
   <!-- Mobile: fixed below the name bar so we sit above it in the stack and stay tappable -->
@@ -24,7 +26,7 @@ const socialIconStyle = {
   <!-- Gradient overlay -->
   <div
     class="absolute inset-0 -z-10 dark:hidden"
-    style={`background: radial-gradient(ellipse 800px 1200px at 0% 0%, ${accent}40 0%, ${accent}25 20%, ${accent}10 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`}
+    style={`background: radial-gradient(ellipse 800px 1200px at 0% 0%, ${accent}40 0%, ${accent}25 20%, ${accent}10 40%, color-mix(in srgb, var(--light-background) 30%, transparent) 70%, color-mix(in srgb, var(--light-background) 80%, transparent) 90%, var(--light-background) 100%)`}
   >
   </div>
   <div
@@ -34,7 +36,7 @@ const socialIconStyle = {
   </div>
   <svg
     aria-hidden="true"
-    class="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:stroke-gray-800 dark:[mask-image:radial-gradient(100%_100%_at_top_right,rgb(3,7,18),transparent)]"
+    class="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,var(--light-background),transparent)] dark:stroke-gray-800 dark:[mask-image:radial-gradient(100%_100%_at_top_right,rgb(3,7,18),transparent)]"
   >
     <defs>
       <pattern
@@ -148,168 +150,193 @@ const socialIconStyle = {
       height="100%"
       stroke-width={0}></rect>
   </svg>
+
   <div
-    class="mx-auto flex h-full w-full flex-col items-stretch gap-10 p-8 sm:p-12 md:flex-row md:items-center md:gap-8 md:p-24"
+    class="mx-auto grid h-full w-full max-w-3xl grid-cols-1 content-center gap-8 p-8 sm:max-w-4xl sm:gap-10 sm:p-12 md:max-w-5xl md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-12 md:p-24"
   >
-    <div class="min-w-0 shrink-0">
+    {
+      heroPhoto && (
+        <div
+          class="animate-fade-in animation-delay-200 order-1 flex justify-center md:order-2 md:justify-end"
+        >
+          <img
+            src={heroPhoto}
+            alt={`Portrait of ${siteConfig.name}`}
+            width="320"
+            height="400"
+            class="aspect-[4/5] w-40 max-w-[min(55vw,14rem)] rounded-2xl border border-gray-200/80 object-cover shadow-md dark:border-gray-700 sm:w-44 md:w-52 md:max-w-none lg:w-56"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      )
+    }
+    <div
+      class:list={[
+        "min-w-0 shrink-0 order-2 font-serif font-medium md:order-1",
+        !heroPhoto && "md:col-span-2",
+      ]}
+    >
       <h2
-        class="text-pretty text-xl font-bold tracking-tight text-gray-700 animate-fade-in dark:text-gray-300 sm:text-2xl md:text-5xl"
+        class="text-pretty text-lg tracking-tight text-gray-700 animate-fade-in dark:text-gray-300 sm:text-xl md:text-4xl"
       >
         Hello! 👋
       </h2>
       <h1
-        class="mt-6 text-pretty text-4xl font-bold tracking-tight text-gray-800 animate-fade-in animation-delay-200 dark:text-gray-100 sm:mt-8 sm:text-5xl md:mt-10 md:text-6xl lg:text-8xl"
+        class="mt-1 text-pretty text-3xl tracking-tight text-gray-800 animate-fade-in animation-delay-200 dark:text-gray-100 sm:mt-6 sm:text-4xl md:mt-8 md:text-5xl lg:text-6xl"
       >
         I'm <span style={{ color: siteConfig.accentColor }}
           >{siteConfig.name}</span
         >
       </h1>
       <p
-        class="mt-4 text-pretty text-base font-medium text-gray-600 animate-fade-in animation-delay-400 dark:text-gray-400 sm:mt-6 sm:text-lg md:mt-8 md:text-xl/8"
+        class="mt-3 text-pretty text-base font-medium text-gray-600 animate-fade-in animation-delay-400 dark:text-gray-400 sm:mt-5 sm:text-lg md:mt-6 md:text-xl/8"
       >
         {siteConfig.title}
       </p>
     </div>
-    {
-      siteConfig.resumePdf && (
-        <div
-          class="flex w-full justify-center md:min-w-0 md:flex-1 md:items-center md:justify-center"
-        >
+  </div>
+
+  <div
+    class="absolute bottom-0 left-0 right-0 animate-fade-in animation-delay-600 text-gray-700 dark:text-gray-300"
+  >
+    <div
+      class="mx-auto flex max-w-3xl flex-wrap items-center gap-x-4 gap-y-3 p-8 sm:max-w-4xl sm:gap-x-6 sm:p-12 md:max-w-5xl md:gap-x-8 md:p-24"
+    >
+      {
+        siteConfig.social?.email && (
           <a
-            href={siteConfig.resumePdf}
+            href={`mailto:${siteConfig.social.email}`}
+            aria-label="Email"
+            class="transition-colors duration-300 hover:text-[var(--accent-color)]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0"
+              style={socialIconStyle}
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+              <path d="M3 7l9 6l9 -6" />
+            </svg>
+          </a>
+        )
+      }
+      {
+        siteConfig.social?.linkedin && (
+          <a
+            href={siteConfig.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            class="animation-delay-900 animate-fade-in inline-flex items-center gap-2 rounded-lg border-2 bg-white px-5 py-2 text-sm font-semibold tracking-wide shadow-sm transition duration-300 hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 sm:gap-2.5 sm:px-6 sm:py-2.5 sm:text-base"
+            aria-label="LinkedIn"
+            class="transition-colors duration-300 hover:text-[var(--accent-color)]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0"
+              style={socialIconStyle}
+            >
+              <>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 11v5" />
+                <path d="M8 8v.01" />
+                <path d="M12 16v-5" />
+                <path d="M16 16v-3a2 2 0 1 0 -4 0" />
+                <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
+              </>
+            </svg>
+          </a>
+        )
+      }
+      {
+        siteConfig.social?.twitter && (
+          <a
+            href={siteConfig.social.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+            class="transition-colors duration-300 hover:text-[var(--accent-color)]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0"
+              style={socialIconStyle}
+            >
+              <>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </>
+            </svg>
+          </a>
+        )
+      }
+      {
+        siteConfig.social?.github && (
+          <a
+            href={siteConfig.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="transition-colors duration-300 hover:text-[var(--accent-color)]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0"
+              style={socialIconStyle}
+            >
+              <>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+              </>
+            </svg>
+          </a>
+        )
+      }
+      {
+        resumePdf && (
+          <a
+            href={resumePdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex h-10 shrink-0 items-center gap-2 rounded-lg border-2 bg-white px-3 text-sm font-semibold shadow-sm transition duration-300 hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 sm:h-11 sm:px-4 sm:text-base"
             style={{
               borderColor: siteConfig.accentColor,
               color: siteConfig.accentColor,
             }}
             aria-label="Open resume PDF"
           >
+            
             View my Resume
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll-text-icon lucide-scroll-text"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll-text-icon lucide-scroll-text"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
           </a>
-        </div>
-      )
-    }
-  </div>
-  <div
-    class="absolute bottom-0 left-0 right-0 flex gap-x-4 p-8 text-gray-700 animate-fade-in animation-delay-600 dark:text-gray-300 sm:gap-x-6 sm:p-12 md:gap-x-8 md:p-24"
-  >
-    {
-      siteConfig.social?.email && (
-        <a
-          href={`mailto:${siteConfig.social.email}`}
-          aria-label="Email"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="shrink-0"
-            style={socialIconStyle}
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
-            <path d="M3 7l9 6l9 -6" />
-          </svg>
-        </a>
-      )
-    }
-    {
-      siteConfig.social?.linkedin && (
-        <a
-          href={siteConfig.social.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="shrink-0"
-            style={socialIconStyle}
-          >
-            <>
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M8 11v5" />
-              <path d="M8 8v.01" />
-              <path d="M12 16v-5" />
-              <path d="M16 16v-3a2 2 0 1 0 -4 0" />
-              <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
-            </>
-          </svg>
-        </a>
-      )
-    }
-    {
-      siteConfig.social?.twitter && (
-        <a
-          href={siteConfig.social.twitter}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Twitter"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="shrink-0"
-            style={socialIconStyle}
-          >
-            <>
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-            </>
-          </svg>
-        </a>
-      )
-    }
-    {
-      siteConfig.social?.github && (
-        <a
-          href={siteConfig.social.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="shrink-0"
-            style={socialIconStyle}
-          >
-            <>
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-            </>
-          </svg>
-        </a>
-      )
-    }
+        )
+      }
+    </div>
   </div>
 </div>
 
@@ -340,9 +367,5 @@ const socialIconStyle = {
 
   .animation-delay-600 {
     animation-delay: 0.6s;
-  }
-
-  .animation-delay-900 {
-    animation-delay: 0.9s;
   }
 </style>

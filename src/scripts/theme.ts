@@ -26,25 +26,3 @@ export function initThemeToggle() {
     },
   );
 }
-
-export const headerScrolledClasses = [
-  "backdrop-blur-sm",
-  "bg-white/80",
-  "dark:bg-gray-950/80",
-];
-
-export function initHeaderScroll() {
-  const update = () => {
-    const scrolled = window.scrollY > 100;
-    for (const id of ["header", "header-mobile"]) {
-      const el = document.getElementById(id);
-      if (scrolled) {
-        el?.classList.add(...headerScrolledClasses);
-      } else {
-        el?.classList.remove(...headerScrolledClasses);
-      }
-    }
-  };
-  update();
-  window.addEventListener("scroll", update);
-}

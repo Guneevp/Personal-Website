@@ -9,7 +9,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 
 <header
   id="header-mobile"
-  class="fixed top-0 left-0 right-0 z-50 block md:hidden transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 block border-b border-gray-200 bg-light-bg transition-colors duration-300 dark:border-gray-800 dark:bg-gray-950 md:hidden"
 >
   <div class="flex justify-center px-8 py-3">
     <span
@@ -23,18 +23,18 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 hidden border-b border-gray-200 bg-light-bg transition-colors duration-300 dark:border-gray-800 dark:bg-gray-950 md:block"
 >
   <nav
     class="relative grid max-w-7xl mx-auto grid-cols-[1fr_auto_1fr] items-center gap-4 px-8 py-4"
   >
     <span
-      class="font-semibold text-xl absolute left-8 top-1/2 -translate-y-1/2"
+      class="font-semibold text-2xl absolute left-8 top-1/2 -translate-y-1/2"
       style={{ color: siteConfig.accentColor }}
     >
       {siteConfig.name}
     </span>
-    <ul class="col-start-2 flex items-center gap-8">
+    <ul class="col-start-2 flex items-center gap-8 text-lg">
       <li>
         <a
           href="#about"
