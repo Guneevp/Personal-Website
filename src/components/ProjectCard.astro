@@ -199,7 +199,13 @@ const hasImage = Boolean(project.image);
     }
   }
 
-  .proj-card[open] .proj-card__img,
+  .proj-card[open] .proj-card__img {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+  }
+
   .proj-card[open] .proj-card__placeholder {
     aspect-ratio: 16 / 9;
     min-height: 0;
