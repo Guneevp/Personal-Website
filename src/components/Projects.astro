@@ -1,6 +1,5 @@
 ---
 import { siteConfig } from "../config";
-import SectionLayout from "./SectionLayout.astro";
 import ProjectCard from "./ProjectCard.astro";
 
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
@@ -8,14 +7,25 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 
 {
   hasProjects && (
-    <SectionLayout id="projects" title="Projects">
-      <ol class="space-y-8">
-        {siteConfig.projects.map((project, index) => (
-          <li>
-            <ProjectCard project={project} index={index} />
-          </li>
-        ))}
-      </ol>
-    </SectionLayout>
+    <section id="projects" class="content-section">
+      <div class="mx-auto w-full max-w-4xl px-6 sm:px-8">
+        <header class="section-header">
+          <h2 class="section-title">Projects</h2>
+          <div
+            class="section-accent"
+            style={`background-color: ${siteConfig.accentColor}`}
+            aria-hidden="true"
+          />
+        </header>
+
+        <ul class="space-y-5">
+          {siteConfig.projects.map((project, index) => (
+            <li>
+              <ProjectCard project={project} index={index} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   )
 }
