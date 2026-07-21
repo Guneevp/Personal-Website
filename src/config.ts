@@ -2,9 +2,11 @@ export const siteConfig = {
   name: "Guneev Pannu",
   title: "Aspiring Software Engineer",
   description: "Portfolio website for Guneev Pannu",
-  accentColor: "#1d4ed8",
-  /** Page background in light mode (header, hero, body). */
-  lightBackground: "#faf9f7",
+  accentColor: "#F07167", // Vibrant Coral — highlights / clickable
+  /** Page background (header, hero, body). */
+  lightBackground: "#181115",
+  /** Primary text color. */
+  textColor: "#A2A8B9", // Cool Steel
   /** Max width for content below the hero (CSS length, e.g. "42rem"). */
   contentMaxWidth: "42rem",
   /** Public URL for your headshot (e.g. `/profile.jpg` in `public/`). Leave empty to hide the hero photo. */

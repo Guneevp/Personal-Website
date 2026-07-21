@@ -42,7 +42,7 @@ const hasImage = Boolean(project.image);
         ) : (
           <div
             class="proj-card__placeholder"
-            style={`background: linear-gradient(135deg, color-mix(in srgb, ${siteConfig.accentColor} 35%, #e5e7eb), #e5e7eb)`}
+            style={`background: linear-gradient(135deg, color-mix(in srgb, ${siteConfig.accentColor} 35%, #3d3238), #3d3238)`}
             aria-hidden="true"
           >
             <span class="font-mono text-sm font-medium text-white/90">
@@ -127,14 +127,14 @@ const hasImage = Boolean(project.image);
 <style>
   .proj-card {
     border-radius: 0.75rem;
-    border: 1px solid rgb(229 231 235 / 0.9);
-    background: white;
+    border: 1px solid rgb(61 50 56 / 0.9);
+    background: #241c20;
     overflow: hidden;
   }
 
   :global(.dark) .proj-card {
-    border-color: rgb(31 41 55 / 0.9);
-    background: rgb(17 24 39 / 0.8);
+    border-color: rgb(61 50 56 / 0.9);
+    background: #241c20;
   }
 
   .proj-card__summary {
