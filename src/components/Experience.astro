@@ -20,7 +20,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
         <ul class="divide-y divide-gray-200/80 dark:divide-gray-800/80">
           {siteConfig.experience.map((exp) => (
             <li>
-              <details class="exp-row group">
+              <details class="exp-row group" data-animate-details>
                 <summary class="exp-row__summary">
                   {"image" in exp && exp.image ? (
                     <img
@@ -103,6 +103,11 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
   )
 }
 
+<script>
+  import { initAnimatedDetails } from "../scripts/animateDetails.ts";
+  initAnimatedDetails();
+</script>
+
 <style>
   .exp-row__summary {
     display: flex;
@@ -118,7 +123,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
   }
 
   .exp-row__chevron {
-    transition: transform 0.2s ease;
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .exp-row[open] .exp-row__chevron {
@@ -127,7 +132,17 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 
   .exp-row__body {
     padding-bottom: 1.25rem;
-    padding-inline-start: 4.375rem; /* logo 3.5rem + gap */
+    padding-inline-start: 4.375rem;
+    opacity: 0;
+    transform: translateY(-0.35rem);
+    transition:
+      opacity 0.28s ease 0.04s,
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .exp-row[open] .exp-row__body {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @media (min-width: 640px) {
@@ -137,7 +152,14 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
     }
 
     .exp-row__body {
-      padding-inline-start: 5rem; /* logo 4rem + gap */
+      padding-inline-start: 5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .exp-row__body,
+    .exp-row__chevron {
+      transition: none;
     }
   }
 </style>

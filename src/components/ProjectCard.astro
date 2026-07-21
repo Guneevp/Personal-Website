@@ -23,7 +23,11 @@ const githubHref = project.github ?? project.link;
 const hasImage = Boolean(project.image);
 ---
 
-<details class="proj-card group">
+<details
+  class="proj-card group"
+  data-animate-details
+  data-animate-duration="480"
+>
   <summary class="proj-card__summary">
     <div class="proj-card__media">
       {
@@ -115,6 +119,11 @@ const hasImage = Boolean(project.image);
   </summary>
 </details>
 
+<script>
+  import { initAnimatedDetails } from "../scripts/animateDetails.ts";
+  initAnimatedDetails();
+</script>
+
 <style>
   .proj-card {
     border-radius: 0.75rem;
@@ -133,6 +142,7 @@ const hasImage = Boolean(project.image);
     grid-template-columns: 1fr;
     cursor: pointer;
     list-style: none;
+    transition: grid-template-columns 0.48s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .proj-card__summary::-webkit-details-marker {
@@ -160,6 +170,9 @@ const hasImage = Boolean(project.image);
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition:
+      min-height 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+      aspect-ratio 0.48s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .proj-card__placeholder {
@@ -205,18 +218,33 @@ const hasImage = Boolean(project.image);
     }
   }
 
+  .proj-card__desc {
+    transition: opacity 0.25s ease;
+  }
+
   .proj-card:not([open]) .proj-card__desc {
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
   .proj-card__chevron {
-    transition: transform 0.2s ease;
+    transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .proj-card[open] .proj-card__chevron {
     transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .proj-card__summary,
+    .proj-card__img,
+    .proj-card__placeholder,
+    .proj-card__desc,
+    .proj-card__chevron {
+      transition: none;
+    }
   }
 </style>
