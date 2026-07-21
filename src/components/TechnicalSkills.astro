@@ -41,13 +41,13 @@ const pairs = siteConfig.skills.map((name, i) => ({
             >
               {pairs.map(({ name, icon }) => (
                 <li>
-                  <span class="inline-flex items-center gap-1 rounded border border-gray-200 bg-white px-2 py-0.5 text-xs font-medium text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
+                  <span class="inline-flex items-center gap-1.5 rounded border border-gray-200 bg-white px-2.5 py-1 text-sm font-medium text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
                     <img
-                      class="h-3.5 w-3.5"
+                      class="h-5 w-5"
                       src={`https://skillicons.dev/icons?i=${icon}`}
                       alt=""
-                      width="14"
-                      height="14"
+                      width="20"
+                      height="20"
                       draggable="false"
                     />
                     {name}

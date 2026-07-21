@@ -1,6 +1,6 @@
-const CRUISE_PX_PER_SEC = 90;
+const CRUISE_PX_PER_SEC = 120;
 const ACCEL_PX_PER_SEC2 = 160;
-const IDLE_RESUME_MS = 1800;
+const IDLE_RESUME_MS = 600;
 
 export function initSkillsMarquee() {
   document
