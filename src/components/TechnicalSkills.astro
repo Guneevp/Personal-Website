@@ -1,0 +1,119 @@
+---
+import { siteConfig } from "../config";
+
+const hasSkills = siteConfig.skills.length > 0;
+const pairs = siteConfig.skills.map((name, i) => ({
+  name,
+  icon: siteConfig.skillicons[i],
+}));
+---
+
+{
+  hasSkills && (
+    <section
+      id="about"
+      class="border-b border-gray-200/80 py-10 dark:border-gray-800/80 sm:py-12"
+    >
+      <div class="content-wrap">
+        <header class="mb-5">
+          <h2 class="section-title text-xl sm:text-2xl">Technical Skills</h2>
+          <div
+            class="section-accent"
+            style={`background-color: ${siteConfig.accentColor}`}
+            aria-hidden="true"
+          />
+        </header>
+      </div>
+
+      <div
+        class="skills-marquee select-none"
+        data-skills-marquee
+        role="region"
+        aria-label="Technical skills, drag to scroll"
+      >
+        <div class="skills-marquee__fade" aria-hidden="true" />
+        <div class="skills-marquee__track" data-skills-track>
+          {[0, 1, 2].map((copy) => (
+            <ul
+              class="skills-marquee__set"
+              data-skills-set={copy === 0 ? "" : undefined}
+              aria-hidden={copy > 0 ? "true" : undefined}
+            >
+              {pairs.map(({ name, icon }) => (
+                <li>
+                  <span class="inline-flex items-center gap-1 rounded border border-gray-200 bg-white px-2 py-0.5 text-xs font-medium text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
+                    <img
+                      class="h-3.5 w-3.5"
+                      src={`https://skillicons.dev/icons?i=${icon}`}
+                      alt=""
+                      width="14"
+                      height="14"
+                      draggable="false"
+                    />
+                    {name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<script>
+  import { initSkillsMarquee } from "../scripts/skillsMarquee.ts";
+  initSkillsMarquee();
+</script>
+
+<style>
+  .skills-marquee {
+    position: relative;
+    cursor: grab;
+    overflow: hidden;
+    touch-action: pan-y;
+    padding-block: 0.25rem;
+  }
+
+  .skills-marquee.is-dragging {
+    cursor: grabbing;
+  }
+
+  .skills-marquee__track {
+    display: flex;
+    width: max-content;
+    gap: 0.375rem;
+    will-change: transform;
+  }
+
+  .skills-marquee__set {
+    display: flex;
+    gap: 0.375rem;
+    padding-inline: 0.75rem;
+  }
+
+  .skills-marquee__fade {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      var(--light-background, #faf9f7) 0%,
+      transparent 8%,
+      transparent 92%,
+      var(--light-background, #faf9f7) 100%
+    );
+  }
+
+  :global(.dark) .skills-marquee__fade {
+    background: linear-gradient(
+      to right,
+      rgb(3 7 18) 0%,
+      transparent 8%,
+      transparent 92%,
+      rgb(3 7 18) 100%
+    );
+  }
+</style>

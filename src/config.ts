@@ -18,8 +18,6 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/guneev-pannu/",
     github: "https://github.com/Guneevp",
   },
-  aboutMe:
-    "Some of the technologies I've learned are:",
   skills: [
     "Java",
     "TypeScript",
