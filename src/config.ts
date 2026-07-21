@@ -90,6 +90,7 @@ export const siteConfig = {
         "Revamped the site with Figma designs implemented in Shadcn and Tailwind CSS for a cohesive, modern look.",
         "Built flexible, reusable React components that reduced time to ship new pages by roughly 30%.",
       ],
+      image: "/utmist.svg",
     },
     {
       company: "UofT Robert Gillespie Academic Skills Centre",
