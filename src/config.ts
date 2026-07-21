@@ -108,11 +108,10 @@ export const siteConfig = {
       degree:
         "HBSc — Computer Science & Statistics (Major), Mathematics (Minor)",
       dateRange: "2024 – 2028",
-      achievements: [
-        "3.96 GPA; Dean's List Year 1, Year 2",
-        "Volunteer note-taker",
-        // "Relevant coursework: object-oriented development, data structures & algorithms, computer organization, software design, computer theory, Unix and systems programming, databases, parallel computing, statistics and probability",
-      ],
+      /** School logo / campus photo in `public/`. */
+      image: "/uoft.png",
+      description:
+        "3.96 GPA; Dean's List Year 1 and Year 2. Volunteer note-taker.",
     },
   ],
 };

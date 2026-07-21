@@ -1,41 +1,62 @@
 ---
 import { siteConfig } from "../config";
-import SectionLayout from "./SectionLayout.astro";
 
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 ---
 
 {
   hasEducation && (
-    <SectionLayout id="education" title="Education">
-      <ol class="space-y-6">
-        {siteConfig.education.map((edu) => (
-          <li>
-            <article class="entry-card">
-              <header class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                <div>
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                    {edu.degree}
+    <section id="education" class="content-section">
+      <div class="mx-auto w-full max-w-4xl px-6 sm:px-8">
+        <header class="section-header">
+          <h2 class="section-title">Education</h2>
+          <div
+            class="section-accent"
+            style={`background-color: ${siteConfig.accentColor}`}
+            aria-hidden="true"
+          />
+        </header>
+
+        <ul class="space-y-6">
+          {siteConfig.education.map((edu) => (
+            <li>
+              <article class="flex gap-8 sm:gap-18">
+                {edu.image && (
+                  <img
+                    src={edu.image}
+                    alt=""
+                    width="200"
+                    height="200"
+                    class="h-40 w-auto shrink-0 rounded-xl object-contain object-left sm:h-52"
+                  />
+                )}
+                <div class="min-w-0 flex-1 self-center">
+                  <h3 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">
+                    {edu.school}
                   </h3>
                   <p
-                    class="text-base font-medium"
+                    class="mt-1 text-base font-medium sm:text-lg"
                     style={{ color: siteConfig.accentColor }}
                   >
-                    {edu.school}
+                    {edu.degree}
+                    {edu.dateRange && (
+                      <span class="font-normal text-gray-500 dark:text-gray-400">
+                        {" "}
+                        · {edu.dateRange}
+                      </span>
+                    )}
                   </p>
+                  {edu.description && (
+                    <p class="mt-3 text-base leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg">
+                      {edu.description}
+                    </p>
+                  )}
                 </div>
-                <time class="entry-meta shrink-0">{edu.dateRange}</time>
-              </header>
-
-              <ul class="entry-list">
-                {edu.achievements.map((achievement) => (
-                  <li>{achievement}</li>
-                ))}
-              </ul>
-            </article>
-          </li>
-        ))}
-      </ol>
-    </SectionLayout>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   )
 }
