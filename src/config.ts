@@ -97,33 +97,14 @@ export const siteConfig = {
   experience: [
     {
       company: "University of Toronto",
-      title: "Teaching Assistant",
-      dateRange: "Sept 2026 – Dec 2026",
-      bullets: [
-        "Will lead weekly tutorials for 20+ students, teaching foundational programming concepts in Python for CSC108",
-      ],
-      image: "/uoft.png",
-    },
-    {
-      company: "University of Toronto",
       title: "Software Engineer",
       dateRange: "May 2026 – Aug 2026",
       bullets: [
-        "Architected a live queuing and logging system for office hours, securing a Fall rollout with 500+ students",
+        "Built a live queuing and logging system using Next.js, React, Docker, and PostgreSQL to improve structure in office hours by reducing crowding, and by keeping attendance logs for cheating cases in 500+ student class",
+        "Worked in a team of 4, meeting weekly with supervising professor to discuss progress and decide next steps",
+        "Wrote GitHub Action to automatically deploy updates via self hosted runner to save time during development",
         "Automated student enrollment, saving 2+ hrs of manual entry for professors by building a CSV pipeline",
-        "Developed a Cron based email reminder service for interested students, increasing office hour attendance by 15%",
-        "Integrated UofT SAML authentication for 15K+ students, eliminating manual account creation",
-      ],
-      image: "/uoft.png",
-    },
-    {
-      company: "University of Toronto",
-      title: "Computer Science Education Research Assistant",
-      dateRange: "May 2026 – June 2026",
-      bullets: [
-        "Authored weekly lab materials and slide decks in LaTeX to deepen understanding of 500+ students for CSC108",
-        "Streamlined Python homework by cutting 33% of existing redundant questions and replacing with 38 new questions",
-        "Automated code evaluation achieving 100% code coverage with pytest test suite for class assignments",
+        "Integrated UofT SAML authentication for 15K+ students, eliminating all manual account creation",
       ],
       image: "/uoft.png",
     },
@@ -137,6 +118,26 @@ export const siteConfig = {
         "Developed an interview dashboard system to streamline recruitment for 40+ applicants",
       ],
       image: "/utmist.svg",
+    },
+    {
+      company: "University of Toronto",
+      title: "Teaching Assistant",
+      dateRange: "Sept 2026 – Dec 2026",
+      bullets: [
+        "Will lead weekly tutorials for 20+ students, teaching foundational programming concepts in Python for CSC108",
+      ],
+      image: "/uoft.png",
+    },
+    {
+      company: "University of Toronto",
+      title: "Computer Science Education Research Assistant",
+      dateRange: "May 2026 – June 2026",
+      bullets: [
+        "Authored weekly lab materials and slide decks in LaTeX to deepen understanding of 500+ students for CSC108",
+        "Streamlined Python homework by cutting 33% of existing redundant questions and replacing with 38 new questions",
+        "Automated code evaluation achieving 100% code coverage with pytest test suite for class assignments",
+      ],
+      image: "/uoft.png",
     },
     {
       company: "UofT Robert Gillespie Academic Skills Centre",
@@ -159,7 +160,7 @@ export const siteConfig = {
       /** School logo / campus photo in `public/`. */
       image: "/uoft.png",
       description:
-        "3.96 GPA. Relevant Courses: Data Structures & Algorithms, Object Oriented Development, Systems Programming, Databases",
+        "3.96 GPA. Relevant Courses: Data Structures & Algorithms, Operating Systems, Systems Programming, Databases, Security",
     },
   ],
 };
