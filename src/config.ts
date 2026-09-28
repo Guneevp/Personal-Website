@@ -66,6 +66,12 @@ export const siteConfig = {
   ],
   projects: [
     {
+      name: "In Class Live QA Tool",
+      description:
+        "A real-time UofT Q&A platform in Next.js, securing a Fall rollout targeting 500+ students. Quality of life features like chat notifications and automatic question context, built with React Hooks, make it easier to monitor chat during lecture. Room events such as question posts, question upvotes, slide changes, and population count are streamed with WebSockets to minimize delay, averaging 40ms latency in 50+ student rooms during load testing.",
+      skills: ["Next.js", "Typescript", "PostgreSQL", "Redis", "Docker"],
+    },
+    {
       name: "Blog Website Backend",
       description:
         "A week-long build of a Tumblr-style blog backend in Spring Boot and Java. I designed a relational PostgreSQL schema and wired it up with Spring Data JPA for efficient queries, then implemented REST APIs with full CRUD coverage verified in Postman. Authentication uses JWT with role-based authorization through Spring Security. The app is containerized with Docker for consistent local and production environments, and Lombok plus MapStruct cut boilerplate so the team could move faster.",
@@ -96,15 +102,44 @@ export const siteConfig = {
   ],
   experience: [
     {
+      company: "UofT Machine Learning Club",
+      title: "Product Manager",
+      dateRange: "Sept 2026 – Present",
+      bullets: [
+        "Leading club website's migration to Payload CMS, replacing Google Forms and Git-push content updates with a single self-serve platform for 11 execs and 100+ applicants per year",
+        "Interviewed all club VPs across engineering, research, academics, etc, to gather requirements for the website redesign, and combined input into a prioritized roadmap for the year.",
+      ],
+      image: "/utmist.svg",
+    },
+    {
       company: "University of Toronto",
       title: "Software Engineer",
       dateRange: "May 2026 – Aug 2026",
       bullets: [
-        "Built a live queuing and logging system using Next.js, React, Docker, and PostgreSQL to improve structure in office hours by reducing crowding, and by keeping attendance logs for cheating cases in 500+ student class",
+        "Built a live queuing and logging system using Next.js, React, Docker, and PostgreSQL to improve structure in office hours by reducing crowding, and by keeping attendance logs in case of cheating in 500+ student class",
         "Worked in a team of 4, meeting weekly with supervising professor to discuss progress and decide next steps",
-        "Wrote GitHub Action to automatically deploy updates via self hosted runner to save time during development",
+        "Wrote GitHub Action to automatically publish updates via self hosted runner to save time during development",
         "Automated student enrollment, saving 2+ hrs of manual entry for professors by building a CSV pipeline",
         "Integrated UofT SAML authentication for 15K+ students, eliminating all manual account creation",
+      ],
+      image: "/uoft.png",
+    },
+    {
+      company: "University of Toronto",
+      title: "Teaching Assistant",
+      dateRange: "Sept 2026 – Dec 2026",
+      bullets: [
+        "Will lead weekly tutorials for 40+ students, Python fundamentals (control flow, functions, lists) for CSC108",
+        "Held 2 hours of office hours per week, walking students through their code so they could debug issues themselves",
+      ],
+      image: "/uoft.png",
+    },
+    {
+      company: "University of Toronto",
+      title: "Computer Science Research Assistant",
+      dateRange: "May 2026 – June 2026",
+      bullets: [
+        "Authored course materials such as labs, slide decks, and practice questions in LaTeX under supervising professor",
       ],
       image: "/uoft.png",
     },
@@ -118,26 +153,6 @@ export const siteConfig = {
         "Developed an interview dashboard system to streamline recruitment for 40+ applicants",
       ],
       image: "/utmist.svg",
-    },
-    {
-      company: "University of Toronto",
-      title: "Teaching Assistant",
-      dateRange: "Sept 2026 – Dec 2026",
-      bullets: [
-        "Will lead weekly tutorials for 20+ students, teaching foundational programming concepts in Python for CSC108",
-      ],
-      image: "/uoft.png",
-    },
-    {
-      company: "University of Toronto",
-      title: "Computer Science Education Research Assistant",
-      dateRange: "May 2026 – June 2026",
-      bullets: [
-        "Authored weekly lab materials and slide decks in LaTeX to deepen understanding of 500+ students for CSC108",
-        "Streamlined Python homework by cutting 33% of existing redundant questions and replacing with 38 new questions",
-        "Automated code evaluation achieving 100% code coverage with pytest test suite for class assignments",
-      ],
-      image: "/uoft.png",
     },
     {
       company: "UofT Robert Gillespie Academic Skills Centre",
