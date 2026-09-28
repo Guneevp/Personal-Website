@@ -70,6 +70,8 @@ export const siteConfig = {
       description:
         "A real-time UofT Q&A platform in Next.js, securing a Fall rollout targeting 500+ students. Quality of life features like chat notifications and automatic question context, built with React Hooks, make it easier to monitor chat during lecture. Room events such as question posts, question upvotes, slide changes, and population count are streamed with WebSockets to minimize delay, averaging 40ms latency in 50+ student rooms during load testing.",
       skills: ["Next.js", "Typescript", "PostgreSQL", "Redis", "Docker"],
+      github: "https://github.com/gdgutm/ask_easy",
+      video: "https://github.com/user-attachments/assets/00b9afc0-10c0-4039-a3a9-907df75e1eed",
     },
     {
       name: "Blog Website Backend",

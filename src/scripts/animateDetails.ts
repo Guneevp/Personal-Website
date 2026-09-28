@@ -11,6 +11,10 @@ export function initAnimatedDetails() {
       const summary = details.querySelector(":scope > summary");
       if (!summary) return;
 
+      details.addEventListener("toggle", () => {
+        if (!details.open) details.querySelectorAll("video").forEach((v) => v.pause());
+      });
+
       summary.addEventListener("click", (event) => {
         const target = event.target as HTMLElement | null;
         if (target?.closest("a, button")) return;

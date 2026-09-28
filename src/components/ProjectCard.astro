@@ -29,7 +29,7 @@ const hasImage = Boolean(project.image);
   data-animate-duration="480"
 >
   <summary class="proj-card__summary">
-    <div class="proj-card__media">
+    <div class:list={["proj-card__media", { "proj-card__media--video": project.video }]}>
       {
         hasImage ? (
           <img
@@ -38,6 +38,17 @@ const hasImage = Boolean(project.image);
             loading="lazy"
             decoding="async"
             class="proj-card__img"
+          />
+        ) : project.video ? (
+          <video
+            src={`${project.video}#t=0.1`}
+            poster={project.videoPoster}
+            muted
+            playsinline
+            preload="metadata"
+            class="proj-card__img pointer-events-none"
+            aria-hidden="true"
+            tabindex="-1"
           />
         ) : (
           <div
@@ -117,6 +128,21 @@ const hasImage = Boolean(project.image);
       }
     </div>
   </summary>
+  {
+    project.video && (
+      <div class="proj-card__video">
+        <video
+          src={project.video}
+          poster={project.videoPoster}
+          controls
+          playsinline
+          preload="metadata"
+          class="w-full rounded-lg"
+          aria-label={`${project.name} demo video`}
+        />
+      </div>
+    )
+  }
 </details>
 
 <script>
@@ -213,6 +239,20 @@ const hasImage = Boolean(project.image);
 
   .proj-card__content {
     padding: 1.25rem;
+  }
+
+  .proj-card[open] .proj-card__media--video {
+    display: none;
+  }
+
+  .proj-card__video {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .proj-card__video {
+      padding: 0 1.5rem 1.5rem;
+    }
   }
 
   @media (min-width: 640px) {
