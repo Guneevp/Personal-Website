@@ -104,6 +104,16 @@ export const siteConfig = {
   ],
   experience: [
     {
+      company: "University of Toronto",
+      title: "Teaching Assistant",
+      dateRange: "Sept 2026 – Dec 2026",
+      bullets: [
+        "Will lead weekly tutorials for 40+ students, Python fundamentals (control flow, functions, lists) for CSC108",
+        "Held 2 hours of office hours per week, walking students through their code so they could debug issues themselves",
+      ],
+      image: "/uoft.png",
+    },
+    {
       company: "UofT Machine Learning Club",
       title: "Product Manager",
       dateRange: "Sept 2026 – Present",
@@ -114,7 +124,7 @@ export const siteConfig = {
       image: "/utmist.svg",
     },
     {
-      company: "Prof. Rutwa Engineer - University of Toronto",
+      company: "Professor - University of Toronto",
       title: "Web Developer",
       dateRange: "May 2026 – Aug 2026",
       bullets: [
@@ -128,20 +138,11 @@ export const siteConfig = {
     },
     {
       company: "University of Toronto",
-      title: "Teaching Assistant",
+      title: "CS Research Assistant",
       dateRange: "Sept 2026 – Dec 2026",
       bullets: [
         "Will lead weekly tutorials for 40+ students, Python fundamentals (control flow, functions, lists) for CSC108",
         "Held 2 hours of office hours per week, walking students through their code so they could debug issues themselves",
-      ],
-      image: "/uoft.png",
-    },
-    {
-      company: "University of Toronto",
-      title: "Computer Science Research Assistant",
-      dateRange: "May 2026 – July 2026",
-      bullets: [
-        "Authored course materials such as labs, slide decks, and practice questions in LaTeX under supervising professor",
       ],
       image: "/uoft.png",
     },
