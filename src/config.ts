@@ -141,8 +141,7 @@ export const siteConfig = {
       title: "CS Research Assistant",
       dateRange: "Sept 2026 – Dec 2026",
       bullets: [
-        "Will lead weekly tutorials for 40+ students, Python fundamentals (control flow, functions, lists) for CSC108",
-        "Held 2 hours of office hours per week, walking students through their code so they could debug issues themselves",
+        "Authored weekly lab materials and slide decks in LaTeX to deepen understanding of 500+ students for CSC108",
       ],
       image: "/uoft.png",
     },
