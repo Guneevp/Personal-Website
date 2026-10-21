@@ -22,19 +22,20 @@ export const siteConfig = {
   },
   skills: [
     "Typescript",
+    "C++",
     "Java",
     "Python",
     "Next.js",
     "React",
     "Node.js",
-    "Junit",
-    "Springboot",
+    "JUnit",
+    "Spring Boot",
     "Agile",
     "Cursor",
-    "Claude Code",
+    "Codex",
     "Git",
     "Docker",
-    "PostgrsSQL",
+    "PostgreSQL",
     "Postman",
     "Linux",
     "pytest",
@@ -44,6 +45,7 @@ export const siteConfig = {
   ],
   skillicons: [
     "ts",
+    "cpp",
     "java",
     "py",
     "nextjs",
@@ -66,33 +68,24 @@ export const siteConfig = {
   ],
   projects: [
     {
+      name: "Temporary RAG",
+      description:
+        "An ephemeral RAG app for temporary research paper workspaces: users upload PDFs, chat against their corpus with page-level citations, while workspaces auto delete via TTL cleanup on AWS. Hybrid search with pgvector and BM25 matches both semantic meaning and keywords for more accurate chunk retrieval. Files are stored in AWS S3, responses are generated through Haiku from AWS Bedrock, and documents are chunked on markdown boundaries and indexed with metadata to maintain semantic structure.",
+      skills: ["Python", "PostgreSQL", "AWS Bedrock"],
+    },
+    {
+      name: "AMD Schola Godot Port",
+      description:
+        "A C++ RL environment framework and plugin for Godot using GDExtension. Implements lifecycle state machines, reset logic, action routing, and auto-reset modes, and connects Godot environments to Python training tools through a gRPC interface for live episode execution.",
+      skills: ["Godot", "C++", "GDExtension", "gRPC"],
+    },
+    {
       name: "In Class Live QA Tool",
       description:
-        "A real-time UofT Q&A platform in Next.js, securing a Fall rollout targeting 500+ students. Quality of life features like chat notifications and automatic question context, built with React Hooks, make it easier to monitor chat during lecture. Room events such as question posts, question upvotes, slide changes, and population count are streamed with WebSockets to minimize delay, averaging 40ms latency in 50+ student rooms during load testing.",
+        "A real-time UofT Q&A platform in Next.js, securing a Fall rollout targeting 500+ students. Quality of life features like notifications and automatic question context, built with React Hooks, make it easier to monitor chat during lecture. Room events such as question posts, question upvotes, slide changes, and population count are streamed with WebSockets to minimize delay, averaging 40ms latency in 50+ student rooms during load testing.",
       skills: ["Next.js", "Typescript", "PostgreSQL", "Redis", "Docker"],
       github: "https://github.com/gdgutm/ask_easy",
       video: "https://github.com/user-attachments/assets/00b9afc0-10c0-4039-a3a9-907df75e1eed",
-    },
-    {
-      name: "Blog Website Backend",
-      description:
-        "A week-long build of a Tumblr-style blog backend in Spring Boot and Java. I designed a relational PostgreSQL schema and wired it up with Spring Data JPA for efficient queries, then implemented REST APIs with full CRUD coverage verified in Postman. Authentication uses JWT with role-based authorization through Spring Security. The app is containerized with Docker for consistent local and production environments, and Lombok plus MapStruct cut boilerplate so the team could move faster.",
-      skills: [
-        "Spring Boot",
-        "Java",
-        "Maven",
-        "Git",
-        "PostgreSQL",
-        "Docker",
-      ],
-      image: "/projects/springboot.png",
-    },
-    {
-      name: "Paint Program",
-      description:
-        "A JavaFX paint application where users draw shapes and lines on a resizable canvas. The codebase follows MVC so features could be added quickly and the team could work in parallel under a one-week sprint. I built save and load for canvas state using finite state machines to achieve load times under 100 ms, and collaborated through many pull requests and bug fixes to get a stable release on time.",
-      skills: ["Java", "JavaFX", "Maven", "Git"],
-      image: "/projects/paint.png",
     },
     {
       name: "Custom Unix Shell",
@@ -108,8 +101,8 @@ export const siteConfig = {
       title: "Teaching Assistant",
       dateRange: "Sept 2026 – Dec 2026",
       bullets: [
-        "Will lead weekly tutorials for 40+ students, Python fundamentals (control flow, functions, lists) for CSC108",
-        "Held 2 hours of office hours per week, walking students through their code so they could debug issues themselves",
+        "Leading weekly tutorials for 40+ students, Python fundamentals (control flow, functions, lists) for CSC108",
+        "Authored weekly lab materials and slide decks in LaTeX to deepen understanding of 500+ students for CSC108",
       ],
       image: "/uoft.png",
     },
@@ -131,17 +124,7 @@ export const siteConfig = {
         "Built a live queuing and logging system using Next.js, React, Docker, and PostgreSQL to improve structure in office hours by reducing crowding, and by keeping attendance logs in case of cheating in 500+ student class",
         "Worked in a team of 4, meeting weekly with supervising professor to discuss progress and decide next steps",
         "Wrote GitHub Action to automatically publish updates via self hosted runner to save time during development",
-        "Automated student enrollment, saving 2+ hrs of manual entry for professors by building a CSV pipeline",
         "Integrated UofT SAML authentication for 15K+ students, eliminating all manual account creation",
-      ],
-      image: "/uoft.png",
-    },
-    {
-      company: "University of Toronto",
-      title: "CS Research Assistant",
-      dateRange: "Sept 2026 – Dec 2026",
-      bullets: [
-        "Authored weekly lab materials and slide decks in LaTeX to deepen understanding of 500+ students for CSC108",
       ],
       image: "/uoft.png",
     },
