@@ -68,30 +68,24 @@ export const siteConfig = {
   ],
   projects: [
     {
-      name: "Temporary RAG",
-      description:
-        "An ephemeral RAG app for temporary research paper workspaces: users upload PDFs, chat against their corpus with page-level citations, while workspaces auto delete via TTL cleanup on AWS. Hybrid search with pgvector and BM25 matches both semantic meaning and keywords for more accurate chunk retrieval. Files are stored in AWS S3, responses are generated through Haiku from AWS Bedrock, and documents are chunked on markdown boundaries and indexed with metadata to maintain semantic structure.",
-      skills: ["Python", "PostgreSQL", "AWS Bedrock"],
-    },
-    {
-      name: "AMD Schola Godot Port",
-      description:
-        "A C++ RL environment framework and plugin for Godot using GDExtension. Implements lifecycle state machines, reset logic, action routing, and auto-reset modes, and connects Godot environments to Python training tools through a gRPC interface for live episode execution.",
-      skills: ["Godot", "C++", "GDExtension", "gRPC"],
-    },
-    {
       name: "In Class Live QA Tool",
       description:
-        "A real-time UofT Q&A platform in Next.js, securing a Fall rollout targeting 500+ students. Quality of life features like notifications and automatic question context, built with React Hooks, make it easier to monitor chat during lecture. Room events such as question posts, question upvotes, slide changes, and population count are streamed with WebSockets to minimize delay, averaging 40ms latency in 50+ student rooms during load testing.",
+        "Architected a real-time UofT Q&A platform in Next.js securing a Fall rollout supporting 500+ students. Streamlined real time events using WebSockets to minimize delay in room events in 50+ student rooms, achieving average latency of 40ms during load test. Implemented notifications and automatic question context with React Hooks for monitoring chats during lecture.",
       skills: ["Next.js", "Typescript", "PostgreSQL", "Redis", "Docker"],
       github: "https://github.com/gdgutm/ask_easy",
       video: "https://github.com/user-attachments/assets/00b9afc0-10c0-4039-a3a9-907df75e1eed",
     },
     {
-      name: "Custom Unix Shell",
+      name: "SciContext – RAG Agent",
       description:
-        "A custom Unix shell in C that replicates core Bash behavior — process creation, piping, and command parsing. I also implemented inter-process communication and a socket-based client–server chat system over local networks. Memory issues were tracked down with GDB and Valgrind until the project ran with zero reported leaks.",
-      skills: ["C", "Make", "Git"],
+        "Built a RAG-powered query engine to help researchers parse scientific documents and research papers. Implemented hybrid search using pgvector and BM25, resulting in an 85% accuracy on a benchmark dataset. Used section aware chunking to preserve additional context between headers and chunks. Documents are chunked on markdown boundaries and indexed with meta data to better maintain semantic structure for better retrieval.",
+      skills: ["Python", "PostgreSQL", "AWS Bedrock"],
+    },
+    {
+      name: "Mysh – Linux Shell",
+      description:
+        "Built a C/POSIX Unix shell with pipelines, signal handling, and background-process management. Implemented seven built-ins: echo, ls, cd, cat, wc, ps, and kill, mirroring core Unix workflows. Added TCP client/server commands supporting 50+ concurrent clients across five milestones covering files, pipelines, signals, and networking.",
+      skills: ["C", "Systems Programming", "POSIX"],
       image: "/projects/mysh.png",
     },
   ],
@@ -102,12 +96,12 @@ export const siteConfig = {
       dateRange: "Sept 2026 – Dec 2026",
       bullets: [
         "Leading weekly tutorials for 40+ students, Python fundamentals (control flow, functions, lists) for CSC108",
-        "Authored weekly lab materials and slide decks in LaTeX to deepen understanding of 500+ students for CSC108",
+        "Authored weekly lab materials and slide decks in Latex to deepen understanding of 500+ students for CSC108",
       ],
       image: "/uoft.png",
     },
     {
-      company: "UofT Machine Learning Club",
+      company: "UofT Machine Learning Club (UTMIST)",
       title: "Product Manager",
       dateRange: "Sept 2026 – Present",
       bullets: [
@@ -118,13 +112,13 @@ export const siteConfig = {
     },
     {
       company: "Professor - University of Toronto",
-      title: "Web Developer",
+      title: "Software Developer",
       dateRange: "May 2026 – Aug 2026",
       bullets: [
-        "Built a live queuing and logging system using Next.js, React, Docker, and PostgreSQL to improve structure in office hours by reducing crowding, and by keeping attendance logs in case of cheating in 500+ student class",
-        "Worked in a team of 4, meeting weekly with supervising professor to discuss progress and decide next steps",
+        "Built a live queuing system using Next.j and SQL, reducing crowding during office hours for 500+ students",
+        "Integrated UofT SAML authentication for 15K+ students, eliminating manual account creation",
         "Wrote GitHub Action to automatically publish updates via self hosted runner to save time during development",
-        "Integrated UofT SAML authentication for 15K+ students, eliminating all manual account creation",
+        "Worked in a team of 4, meeting weekly with supervising professor to discuss progress and decide next steps",
       ],
       image: "/uoft.png",
     },
