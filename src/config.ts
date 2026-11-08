@@ -115,7 +115,7 @@ export const siteConfig = {
       title: "Software Developer",
       dateRange: "May 2026 – Aug 2026",
       bullets: [
-        "Built a live queuing system using Next.j and SQL, reducing crowding during office hours for 500+ students",
+        "Built a live queuing system using Next.js and SQL, reducing crowding during office hours for 500+ students",
         "Integrated UofT SAML authentication for 15K+ students, eliminating manual account creation",
         "Wrote GitHub Action to automatically publish updates via self hosted runner to save time during development",
         "Worked in a team of 4, meeting weekly with supervising professor to discuss progress and decide next steps",
