@@ -88,6 +88,40 @@ export const siteConfig = {
       skills: ["C", "Systems Programming", "POSIX"],
       image: "/projects/mysh.png",
     },
+    {
+      name: "AMD Schola Godot Port",
+      description:
+        "A C++ RL environment framework and plugin for Godot using GDExtension. Implements lifecycle state machines, reset logic, action routing, and auto-reset modes, and connects Godot environments to Python training tools through a gRPC interface for live episode execution.",
+      skills: ["Godot", "C++", "GDExtension", "gRPC"],
+    },
+    {
+      name: "Blog Website Backend",
+      description:
+        "A week-long build of a Tumblr-style blog backend in Spring Boot and Java. I designed a relational PostgreSQL schema and wired it up with Spring Data JPA for efficient queries, then implemented REST APIs with full CRUD coverage verified in Postman. Authentication uses JWT with role-based authorization through Spring Security. The app is containerized with Docker for consistent local and production environments, and Lombok plus MapStruct cut boilerplate so the team could move faster.",
+      skills: [
+        "Spring Boot",
+        "Java",
+        "Maven",
+        "Git",
+        "PostgreSQL",
+        "Docker",
+      ],
+      image: "/projects/springboot.png",
+    },
+    {
+      name: "Paint Program",
+      description:
+        "A JavaFX paint application where users draw shapes and lines on a resizable canvas. The codebase follows MVC so features could be added quickly and the team could work in parallel under a one-week sprint. I built save and load for canvas state using finite state machines to achieve load times under 100 ms, and collaborated through many pull requests and bug fixes to get a stable release on time.",
+      skills: ["Java", "JavaFX", "Maven", "Git"],
+      image: "/projects/paint.png",
+    },
+    {
+      name: "Python Syntax Checker",
+      description:
+        "A PyTorch model trained to flag simple Python syntax errors, reaching 92.5% accuracy on the test set. I created and labeled a 5,000-sample dataset using Python's ast module and tokenizer, then iterated on the model and evaluation pipeline in a Git-managed workflow.",
+      skills: ["PyTorch", "Git"],
+      image: "/projects/syntax.png",
+    },
   ],
   experience: [
     {
