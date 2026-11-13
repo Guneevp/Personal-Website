@@ -68,7 +68,7 @@ export const siteConfig = {
   ],
   projects: [
     {
-      name: "In Class Live QA Tool",
+      name: "AskEasy - In Class Live QA Tool",
       description:
         "Architected a real-time UofT Q&A platform in Next.js securing a Fall rollout supporting 500+ students. Streamlined real time events using WebSockets to minimize delay in room events in 50+ student rooms, achieving average latency of 40ms during load test. Implemented notifications and automatic question context with React Hooks for monitoring chats during lecture.",
       skills: ["Next.js", "Typescript", "PostgreSQL", "Redis", "Docker"],
