@@ -68,12 +68,10 @@ export const siteConfig = {
   ],
   projects: [
     {
-      name: "AskEasy - In Class Live QA Tool",
+      name: "Job Executor – Concurrent Scheduler",
       description:
-        "Architected a real-time UofT Q&A platform in Next.js securing a Fall rollout supporting 500+ students. Streamlined real time events using WebSockets to minimize delay in room events in 50+ student rooms, achieving average latency of 40ms during load test. Implemented notifications and automatic question context with React Hooks for monitoring chats during lecture.",
-      skills: ["Next.js", "Typescript", "PostgreSQL", "Redis", "Docker"],
-      github: "https://github.com/gdgutm/ask_easy",
-      video: "https://github.com/user-attachments/assets/00b9afc0-10c0-4039-a3a9-907df75e1eed",
+        "Built a multi-threaded job executor with 4 job queues, and synchronized admit/execute threads via mutexes and condition variables. Implemented circular buffers and per-resource locks across 8 shared resources, with sorting to prevent deadlock. Verified full completion and zero leftover resource utilization on a 2000 job workload with Helgrind.",
+      skills: ["C", "pthreads", "POSIX"],
     },
     {
       name: "SciContext – RAG Agent",
@@ -82,11 +80,32 @@ export const siteConfig = {
       skills: ["Python", "PostgreSQL", "AWS Bedrock"],
     },
     {
+      name: "HourSpace – Office Hour Management System",
+      description:
+        "Built a live queuing system using Next.js and SQL, reducing crowding during office hours for 500+ students. Integrated UofT SAML authentication for 15K+ possible students, enabling automatic account creation. Cut Docker redeploy time with BuildKit from ~2 min to ~55s by caching multi-stage build dependencies.",
+      skills: [
+        "Next.js",
+        "Typescript",
+        "React",
+        "PostgreSQL",
+        "Prisma",
+        "Docker",
+      ],
+    },
+    {
       name: "Mysh – Linux Shell",
       description:
         "Built a C/POSIX Unix shell with pipelines, signal handling, and background-process management. Implemented seven built-ins: echo, ls, cd, cat, wc, ps, and kill, mirroring core Unix workflows. Added TCP client/server commands supporting 50+ concurrent clients across five milestones covering files, pipelines, signals, and networking.",
       skills: ["C", "Systems Programming", "POSIX"],
       image: "/projects/mysh.png",
+    },
+    {
+      name: "AskEasy - In Class Live QA Tool",
+      description:
+        "Architected a real-time UofT Q&A platform in Next.js securing a Fall rollout supporting 500+ students. Streamlined real time events using WebSockets to minimize delay in room events in 50+ student rooms, achieving average latency of 40ms during load test. Implemented notifications and automatic question context with React Hooks for monitoring chats during lecture.",
+      skills: ["Next.js", "Typescript", "PostgreSQL", "Redis", "Docker"],
+      github: "https://github.com/gdgutm/ask_easy",
+      video: "https://github.com/user-attachments/assets/00b9afc0-10c0-4039-a3a9-907df75e1eed",
     },
     {
       name: "AMD Schola Godot Port",
@@ -125,12 +144,22 @@ export const siteConfig = {
   ],
   experience: [
     {
-      company: "University of Toronto",
-      title: "Teaching Assistant",
+      company: "AMD – CSC301H1 Industry Partner",
+      title: "Software Engineer",
       dateRange: "Sept 2026 – Dec 2026",
       bullets: [
-        "Leading weekly tutorials for 40+ students, Python fundamentals (control flow, functions, lists) for CSC108",
-        "Authored weekly lab materials and slide decks in Latex to deepen understanding of 500+ students for CSC108",
+        "Collaborated in a 7 person team with AMD staff to port AMD Schola an Unreal RL plugin to Godot",
+        "Implemented multi-environment training in C++ with correctly routed step and reset signals, sustaining 1,000 simultaneous environments at ~0.33ms per env step",
+        "Built protobuf to Schola conversions for gRPC/Python training path, achieving a ~0.15 ms median trip time",
+      ],
+    },
+    {
+      company: "University of Toronto",
+      title: "Teaching Assistant – Intro to Computer Programming",
+      dateRange: "Sept 2026 – Dec 2026",
+      bullets: [
+        "Leading weekly labs on Python fundamentals (control flow, functions, lists, OOP) for CSC108 for 40+ students",
+        "Authored weekly lab materials and slide decks in Latex to deepen understanding of 500+ total students enrolled",
       ],
       image: "/uoft.png",
     },
@@ -139,8 +168,8 @@ export const siteConfig = {
       title: "Product Manager",
       dateRange: "Sept 2026 – Present",
       bullets: [
-        "Leading club website's migration to Payload CMS, replacing Google Forms and Git-push content updates with a single self-serve platform for 11 execs and 100+ applicants per year",
-        "Interviewed all club VPs across engineering, research, academics, etc, to gather requirements for the website redesign, and combined input into a prioritized roadmap for the year.",
+        "Led website's migration to Payload CMS, replacing manual Git push updates with self serve platform for 11 execs",
+        "Organized Scrum workflows: wrote and grouped user stories into epics with acceptance criteria for weekly sprints",
       ],
       image: "/utmist.svg",
     },
