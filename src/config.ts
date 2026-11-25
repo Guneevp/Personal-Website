@@ -186,6 +186,17 @@ export const siteConfig = {
       image: "/uoft.png",
     },
     {
+      company: "University of Toronto",
+      title: "CS Research Assistant",
+      dateRange: "May 2026 – June 2026",
+      bullets: [
+        "Authored weekly lab materials and slide decks in LaTeX to deepen understanding of 500+ students for CSC108",
+        "Streamlined Python homework by cutting 33% of existing redundant questions and replacing with 38 new questions",
+        "Automated code evaluation achieving 100% code coverage with pytest test suite for class assignments",
+      ],
+      image: "/uoft.png",
+    },
+    {
       company: "UofT Machine Learning Club",
       title: "Web Developer",
       dateRange: "Sept 2025 – May 2026",
